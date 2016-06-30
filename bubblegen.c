@@ -14,7 +14,7 @@ void swap(void *p1, void *p2 , int size)
 }
 
                
-void bubble(void *base, int nmemb, int size, int (*comp)(const void *p1, const void *p2) )
+void bubble(void *base, int nmemb, int size, int (*comp)(void *p1, void *p2) )
 {
 	int i, j;
 	
@@ -27,7 +27,7 @@ void bubble(void *base, int nmemb, int size, int (*comp)(const void *p1, const v
 		   if( comp ( (base+j*size),(base+(j+1)*size) )  > 0 )
 		   {
 			  
-			   printf(" base+j*size=%d  j+1=%d  ",*(int*)(base+j*size), *(int*)(base+(j+1)*size));   //for strings only*/  
+			   printf(" base+j*size=%p  j+1=%p  ",(base+j*size), (base+(j+1)*size));   //for strings only*/  
 			    
 			   swap( (base+j*size), (base+(j+1)*size), size);
 			 
@@ -39,7 +39,7 @@ void bubble(void *base, int nmemb, int size, int (*comp)(const void *p1, const v
 
 
 
-int comp(const void *p1,const void *p2)
+int comp(void *p1,void *p2)
 {
 
 	//return strcmp ( (char*) p1,(char *) p2);

@@ -1,0 +1,19 @@
+#include "implementation.h"
+#include<stdio.h>
+//#include <check.h>
+
+int a[5]={5,4,3,2,1},pos,i,n=5;
+
+#test sum2test
+	pos=partition(a, 5);
+	for(i=0;i<pos;i++)
+	ck_assert_int_le (a[i],a[pos]);
+	for(i=pos+1; i<n; i++)
+	ck_assert_int_le (a[pos],a[i]);		
+	
+	
+	
+	   
+/*	fail_unless(sum(-3, 2) == -1, "sum function forked");
+	fail_unless(sum(3, -2) == 1, "sum function forked");
+	fail_unless(sum(-3, -2) == -5, "sum function forked");*/
